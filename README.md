@@ -227,7 +227,7 @@ invoice/
 │                   contextBridge                   │
 ├───────────────────────────────────────────────────┤
 │                Electron Renderer                  │
-│  ┌──── ─────┐  ┌───────────┐  ┌────────────────┐  │
+│  ┌──────────┐  ┌───────────┐  ┌────────────────┐  │
 │  │  React   │  │ Contexts  │  │  Firebase SDK  │  │
 │  │  Pages   │  │ Auth/Sync │  │  Auth + Sync   │  │
 │  │  (15)    │  │ Lang/Theme│  │  Firestore     │  │

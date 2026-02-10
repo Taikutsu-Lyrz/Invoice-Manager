@@ -21,50 +21,50 @@
 
 ---
 
-## ✨ Features
+##  Features
 
 ### Core Invoicing
 
-- 📄 **Invoice Management** — Create, edit, duplicate, and void invoices with multi-line items, taxes, and discounts
-- 🧾 **PDF Generation** — Professional invoice PDFs with Classic & Modern templates (A4 / Letter)
-- 🧾 **Receipt PDFs** — Generate payment receipts for clients
-- 📊 **Report PDFs** — Export sales, tax, profit, payment, and expense reports as PDFs
+-  **Invoice Management** — Create, edit, duplicate, and void invoices with multi-line items, taxes, and discounts
+-  **PDF Generation** — Professional invoice PDFs with Classic & Modern templates (A4 / Letter)
+-  **Receipt PDFs** — Generate payment receipts for clients
+-  **Report PDFs** — Export sales, tax, profit, payment, and expense reports as PDFs
 
 ### Financial Tracking
 
-- 💰 **Payments** — Record partial payments and refunds with multiple methods (Cash, Bank, Card, Check)
-- 📉 **Expense Tracking** — Log expenses by category with vendor and tax tracking
-- 📈 **Dashboard** — Revenue KPIs, monthly charts, invoice status breakdown, top clients, and recent activity
-- 📋 **Reports** — Sales, Tax, Profit, Payments, and Expenses analytics with date range filtering
+-  **Payments** — Record partial payments and refunds with multiple methods (Cash, Bank, Card, Check)
+-  **Expense Tracking** — Log expenses by category with vendor and tax tracking
+-  **Dashboard** — Revenue KPIs, monthly charts, invoice status breakdown, top clients, and recent activity
+-  **Reports** — Sales, Tax, Profit, Payments, and Expenses analytics with date range filtering
 
 ### Client & Product Management
 
-- 👥 **Clients** — Full client database with billing/shipping addresses and tax numbers
-- 📦 **Products** — Product catalog with SKU, units, pricing, cost tracking, and optional stock management
+-  **Clients** — Full client database with billing/shipping addresses and tax numbers
+-  **Products** — Product catalog with SKU, units, pricing, cost tracking, and optional stock management
 
 ### Data & Security
 
-- 🔒 **Offline-First** — All data stored locally in SQLite (via sql.js) — no internet required
-- ☁️ **Cloud Sync** — Optional Firebase Firestore sync with auto-sync, manual sync, and conflict resolution
-- 🏢 **Multi-Tenant** — Mother/child user hierarchy per organization with role-based Firestore rules
-- 👤 **User Management** — Invite and manage team members within your organization
-- 🔐 **Authentication** — Firebase Auth with email/password login and registration
-- 💾 **Backup/Restore** — Encrypted backups with optional password protection
-- 📥 **CSV Import/Export** — Import clients & products, export any data as CSV
-- 🗑️ **Trash & Recovery** — Soft-delete with restore or permanent deletion
-- 📝 **Audit Logging** — Track all CRUD operations for accountability
+-  **Offline-First** — All data stored locally in SQLite (via sql.js) — no internet required
+-  **Cloud Sync** — Optional Firebase Firestore sync with auto-sync, manual sync, and conflict resolution
+-  **Multi-Tenant** — Mother/child user hierarchy per organization with role-based Firestore rules
+-  **User Management** — Invite and manage team members within your organization
+-  **Authentication** — Firebase Auth with email/password login and registration
+-  **Backup/Restore** — Encrypted backups with optional password protection
+-  **CSV Import/Export** — Import clients & products, export any data as CSV
+-  **Trash & Recovery** — Soft-delete with restore or permanent deletion
+-  **Audit Logging** — Track all CRUD operations for accountability
 
 ### User Experience
 
-- 🌍 **Bilingual** — Full English and Dari (فارسی) translations with RTL support
-- 🎨 **Theming** — Dark, Light, and System theme modes
-- 🎓 **Interactive Tutorial** — Guided onboarding walkthrough using driver.js
-- ⌨️ **Keyboard Shortcuts** — Quick access to common actions
-- 🔍 **Global Search** — Search across invoices, clients, and products (Ctrl+K)
+-  **Bilingual** — Full English and Dari (فارسی) translations with RTL support
+-  **Theming** — Dark, Light, and System theme modes
+-  **Interactive Tutorial** — Guided onboarding walkthrough using driver.js
+-  **Keyboard Shortcuts** — Quick access to common actions
+-  **Global Search** — Search across invoices, clients, and products (Ctrl+K)
 
 ---
 
-## 🖥️ Screenshots
+##  Screenshots
 
 <table>
   <tr>
@@ -83,7 +83,7 @@
 
 ---
 
-## 📋 Prerequisites
+##  Prerequisites
 
 - **Node.js** 18.x or 20.x LTS
 - **npm** 9.x or later
@@ -91,7 +91,7 @@
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ```bash
 # Clone the repository
@@ -131,7 +131,7 @@ The installer is output to the `release/` directory.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 invoice/
@@ -249,7 +249,7 @@ invoice/
 
 ---
 
-## ☁️ Cloud Sync (Optional)
+##  Cloud Sync (Optional)
 
 The app works fully offline. Cloud sync is **optional** and uses Firebase:
 
@@ -263,7 +263,7 @@ The app works fully offline. Cloud sync is **optional** and uses Firebase:
 
 ---
 
-## 🎨 Customization
+##  Customization
 
 | What | Where |
 |------|-------|
@@ -278,7 +278,7 @@ The app works fully offline. Cloud sync is **optional** and uses Firebase:
 
 ---
 
-## 🧪 Scripts Reference
+##  Scripts Reference
 
 | Script | Description |
 |--------|-------------|
@@ -291,7 +291,7 @@ The app works fully offline. Cloud sync is **optional** and uses Firebase:
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -314,6 +314,6 @@ The app works fully offline. Cloud sync is **optional** and uses Firebase:
 
 ---
 
-## 📜 License
+##  License
 
 This project is licensed under the [MIT License](LICENSE).

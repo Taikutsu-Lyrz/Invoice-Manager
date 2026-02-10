@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* Light theme (default) */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem;
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222.2 47.4% 11.2%;
+  }
+
+  /* Dark theme */
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 6%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222.2 47.4% 11.2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* RTL support for Dari/Persian */
+  [dir="rtl"] {
+    font-family: 'Vazirmatn', 'Inter', system-ui, sans-serif;
+  }
+
+
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Table styles */
+.table-container {
+  @apply overflow-x-auto rounded-lg border border-border;
+}
+
+.data-table {
+  @apply w-full text-sm;
+}
+
+.data-table th {
+  @apply px-4 py-3 text-left font-medium text-muted-foreground bg-secondary/50;
+}
+
+[dir="rtl"] .data-table th {
+  @apply text-right;
+}
+
+.data-table td {
+  @apply px-4 py-3 border-t border-border;
+}
+
+[dir="rtl"] .data-table td {
+  @apply text-right;
+}
+
+.data-table tbody tr:hover {
+  @apply bg-secondary/30;
+}
+
+/* Form styles */
+.form-group {
+  @apply space-y-2;
+}
+
+.form-label {
+  @apply text-sm font-medium text-foreground;
+}
+
+.form-input {
+  @apply w-full px-3 py-2 rounded-md bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+}
+
+.form-error {
+  @apply text-sm text-destructive mt-1;
+}
+
+/* Card styles */
+.stat-card {
+  @apply p-6 rounded-xl bg-card border border-border;
+}
+
+.stat-card-value {
+  @apply text-3xl font-bold text-foreground;
+}
+
+.stat-card-label {
+  @apply text-sm text-muted-foreground mt-1;
+}
+
+.stat-card-trend {
+  @apply flex items-center gap-1 text-sm mt-2;
+}
+
+.stat-card-trend.up {
+  @apply text-green-500;
+}
+
+.stat-card-trend.down {
+  @apply text-red-500;
+}
+
+/* Status badges */
+.status-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.status-draft {
+  @apply bg-gray-500/20 text-gray-400;
+}
+
+.status-sent {
+  @apply bg-blue-500/20 text-blue-400;
+}
+
+.status-paid {
+  @apply bg-green-500/20 text-green-400;
+}
+
+.status-partial {
+  @apply bg-yellow-500/20 text-yellow-400;
+}
+
+.status-overdue {
+  @apply bg-red-500/20 text-red-400;
+}
+
+.status-void {
+  @apply bg-gray-700/20 text-gray-500;
+}
+
+.status-refunded {
+  @apply bg-purple-500/20 text-purple-400;
+}
+
+/* Button variants */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50 disabled:pointer-events-none;
+}
+
+.btn-primary {
+  @apply btn bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-primary px-4 py-2;
+}
+
+.btn-secondary {
+  @apply btn bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:ring-secondary px-4 py-2;
+}
+
+.btn-destructive {
+  @apply btn bg-destructive text-destructive-foreground hover:bg-destructive/90 focus:ring-destructive px-4 py-2;
+}
+
+.btn-ghost {
+  @apply btn hover:bg-secondary focus:ring-secondary px-4 py-2;
+}
+
+.btn-icon {
+  @apply btn p-2 hover:bg-secondary rounded-md;
+}

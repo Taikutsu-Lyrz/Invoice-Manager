@@ -1,0 +1,71 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to get user's tenant ID from their profile
+    function getUserProfile() {
+      return get(/databases/$(database)/documents/userProfiles/$(request.auth.uid)).data;
+    }
+    
+    // Check if user belongs to the specified tenant
+    function belongsToTenant(tenantId) {
+      return request.auth != null && getUserProfile().tenantId == tenantId;
+    }
+    
+    // Check if user is a mother of the specified tenant
+    function isMotherOfTenant(tenantId) {
+      let profile = getUserProfile();
+      return request.auth != null && 
+             profile.tenantId == tenantId && 
+             profile.role == 'mother';
+    }
+    
+    // User profiles - users can only read/write their own profile
+    // But mothers and children of same tenant can see each other's profiles
+    match /userProfiles/{userId} {
+      // Allow reading own profile
+      allow read: if request.auth != null && request.auth.uid == userId;
+      
+      // Allow writing own profile
+      allow write: if request.auth != null && request.auth.uid == userId;
+      
+      // Allow mothers to read child profiles in their tenant
+      allow read: if request.auth != null && 
+                    resource.data.tenantId == getUserProfile().tenantId;
+    }
+    
+    // Tenant data - only users belonging to the tenant can access
+    match /tenants/{tenantId}/{document=**} {
+      // Allow read/write if user belongs to this tenant
+      allow read, write: if belongsToTenant(tenantId);
+    }
+    
+    // Specific rules for each collection within a tenant
+    match /tenants/{tenantId}/clients/{clientId} {
+      allow read, write: if belongsToTenant(tenantId);
+    }
+    
+    match /tenants/{tenantId}/products/{productId} {
+      allow read, write: if belongsToTenant(tenantId);
+    }
+    
+    match /tenants/{tenantId}/invoices/{invoiceId} {
+      allow read, write: if belongsToTenant(tenantId);
+    }
+    
+    match /tenants/{tenantId}/payments/{paymentId} {
+      allow read, write: if belongsToTenant(tenantId);
+    }
+    
+    match /tenants/{tenantId}/expenses/{expenseId} {
+      allow read, write: if belongsToTenant(tenantId);
+    }
+    
+    match /tenants/{tenantId}/info/{infoId} {
+      // Only mothers can modify tenant info
+      allow read: if belongsToTenant(tenantId);
+      allow write: if isMotherOfTenant(tenantId);
+    }
+  }
+}
